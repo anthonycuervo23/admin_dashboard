@@ -1,6 +1,7 @@
 import 'package:admin_dashboard/router/routes.dart';
 import 'package:admin_dashboard/ui/buttons/custom_outlined_button.dart';
 import 'package:admin_dashboard/ui/buttons/link_text.dart';
+import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
@@ -26,7 +27,7 @@ class LoginView extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                   ),
-                  decoration: buildInputDecoration(
+                  decoration: CustomInputs.authInputDecoration(
                     hint: 'Enter your email',
                     label: 'Email',
                     icon: Icons.email_outlined,
@@ -42,7 +43,7 @@ class LoginView extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.white,
                   ),
-                  decoration: buildInputDecoration(
+                  decoration: CustomInputs.authInputDecoration(
                     hint: '**********',
                     label: 'Password',
                     icon: Icons.lock_outline_rounded,
@@ -70,33 +71,6 @@ class LoginView extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  InputDecoration buildInputDecoration({
-    required String hint,
-    required String label,
-    required IconData icon,
-  }) {
-    return InputDecoration(
-      border: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Colors.white.withOpacity(0.3),
-        ),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(
-          color: Colors.white.withOpacity(0.3),
-        ),
-      ),
-      hintText: hint,
-      labelText: label,
-      prefixIcon: Icon(
-        icon,
-        color: Colors.grey,
-      ),
-      hintStyle: TextStyle(color: Colors.grey),
-      labelStyle: TextStyle(color: Colors.grey),
     );
   }
 }
