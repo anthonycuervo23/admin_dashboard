@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/providers/auth_provider.dart';
 import 'package:admin_dashboard/providers/login_form_provider.dart';
 import 'package:admin_dashboard/router/routes.dart';
 import 'package:admin_dashboard/ui/buttons/custom_outlined_button.dart';
@@ -12,6 +13,7 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AuthProvider authProvider = Provider.of<AuthProvider>(context);
     return ChangeNotifierProvider<LoginFormProvider>(
       create: (_) => LoginFormProvider(),
       child: Builder(
@@ -77,7 +79,10 @@ class LoginView extends StatelessWidget {
                       ),
                       CustomOutlinedButton(
                         onPressed: () {
-                          loginFormProvider.validateForm();
+                          final isValid = loginFormProvider.validateForm();
+                          if (isValid)
+                            authProvider.login(loginFormProvider.email,
+                                loginFormProvider.password);
                         },
                         text: 'Sign in',
                       ),

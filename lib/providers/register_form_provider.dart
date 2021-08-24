@@ -7,11 +7,8 @@ class RegisterFormProvider extends ChangeNotifier {
 
   GlobalKey<FormState> formKey = new GlobalKey<FormState>();
 
-  validateForm() {
-    if (formKey.currentState!.validate()) {
-      print('Form Validated');
-    } else {
-      print('Form not valid');
-    }
+  bool validateForm() {
+    if (formKey.currentState!.validate()) return true;
+    return false;
   }
 }

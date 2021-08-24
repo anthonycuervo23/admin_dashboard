@@ -48,7 +48,7 @@ class _DesktopBody extends StatelessWidget {
       child: Row(
         children: [
           //Twitter Background
-          BackgroundTwitter(),
+          Expanded(child: BackgroundTwitter()),
           // View Container
           Container(
             width: 600.0,
@@ -64,6 +64,7 @@ class _DesktopBody extends StatelessWidget {
                 SizedBox(
                   height: 50.0,
                 ),
+                //Sign in or Sign up form
                 Expanded(child: child),
               ],
             ),

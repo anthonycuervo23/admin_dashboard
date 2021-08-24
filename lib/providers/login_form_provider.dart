@@ -6,12 +6,8 @@ class LoginFormProvider extends ChangeNotifier {
   String email = '';
   String password = '';
 
-  validateForm() {
-    if (formKey.currentState!.validate()) {
-      print('Form Validated');
-      print(email);
-    } else {
-      print('Form not Valid');
-    }
+  bool validateForm() {
+    if (formKey.currentState!.validate()) return true;
+    return false;
   }
 }
