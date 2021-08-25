@@ -10,6 +10,7 @@ class NoPageFoundView extends StatelessWidget {
       child: Center(
         child: Text(
           '404 - No Page Found',
+          textAlign: TextAlign.center,
           style: GoogleFonts.montserratAlternates(
             fontSize: 50,
             fontWeight: FontWeight.bold,

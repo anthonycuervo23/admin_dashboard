@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/providers/sidebar_provider.dart';
 import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
 import 'package:admin_dashboard/ui/layouts/splash/splash_layout.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,6 +28,10 @@ class AppState extends StatelessWidget {
         ChangeNotifierProvider(
           lazy: false,
           create: (_) => AuthProvider(),
+        ),
+        ChangeNotifierProvider(
+          lazy: false,
+          create: (_) => SidebarProvider(),
         ),
       ],
       child: MyApp(),

@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/providers/sidebar_provider.dart';
 import 'package:admin_dashboard/ui/layouts/shared/widgets/navbar_avatar.dart';
 import 'package:admin_dashboard/ui/layouts/shared/widgets/notifications_indicator.dart';
 import 'package:admin_dashboard/ui/layouts/shared/widgets/search_box.dart';
@@ -8,26 +9,29 @@ class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Container(
       width: double.infinity,
       height: 50.0,
       decoration: buildBoxDecoration(),
       child: Row(
         children: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.menu_outlined),
-          ),
+          if (size.width <= 700)
+            IconButton(
+              onPressed: () => SidebarProvider.openMenu(),
+              icon: Icon(Icons.menu_outlined),
+            ),
           SizedBox(
             width: 5.0,
           ),
           //Search Box
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: 250,
+          if (size.width > 380)
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                maxWidth: 250,
+              ),
+              child: SearchBox(),
             ),
-            child: SearchBox(),
-          ),
           Spacer(),
           NotificationsIndicator(),
           SizedBox(
