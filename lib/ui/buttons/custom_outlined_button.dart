@@ -6,6 +6,7 @@ class CustomOutlinedButton extends StatelessWidget {
       required this.onPressed,
       required this.text,
       this.color = Colors.blue,
+      this.isTextWhite = false,
       this.isFilled = false})
       : super(key: key);
 
@@ -13,6 +14,7 @@ class CustomOutlinedButton extends StatelessWidget {
   final Color color;
   final bool isFilled;
   final VoidCallback onPressed;
+  final bool isTextWhite;
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +44,7 @@ class CustomOutlinedButton extends StatelessWidget {
           text,
           style: TextStyle(
             fontSize: 16.0,
+            color: isTextWhite ? Colors.white : color,
           ),
         ),
       ),

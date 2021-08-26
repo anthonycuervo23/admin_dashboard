@@ -1,17 +1,22 @@
-import 'package:admin_dashboard/api/cafe_api.dart';
-import 'package:admin_dashboard/providers/sidebar_provider.dart';
-import 'package:admin_dashboard/services/notifications_service.dart';
-import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
-import 'package:admin_dashboard/ui/layouts/splash/splash_layout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 //My imports
-import 'package:admin_dashboard/providers/auth_provider.dart';
+import 'package:admin_dashboard/api/cafe_api.dart';
+
 import 'package:admin_dashboard/router/routes.dart';
+
+import 'package:admin_dashboard/providers/categories_provider.dart';
+import 'package:admin_dashboard/providers/sidebar_provider.dart';
+import 'package:admin_dashboard/providers/auth_provider.dart';
+
 import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';
+import 'package:admin_dashboard/services/notifications_service.dart';
+
+import 'package:admin_dashboard/ui/layouts/dashboard/dashboard_layout.dart';
+import 'package:admin_dashboard/ui/layouts/splash/splash_layout.dart';
 import 'package:admin_dashboard/ui/layouts/auth/auth_layout.dart';
 
 void main() async {
@@ -35,6 +40,9 @@ class AppState extends StatelessWidget {
         ChangeNotifierProvider(
           lazy: false,
           create: (_) => SidebarProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CategoriesProvider(),
         ),
       ],
       child: MyApp(),
