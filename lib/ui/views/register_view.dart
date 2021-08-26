@@ -1,3 +1,4 @@
+import 'package:admin_dashboard/providers/auth_provider.dart';
 import 'package:admin_dashboard/providers/register_form_provider.dart';
 import 'package:admin_dashboard/router/routes.dart';
 import 'package:admin_dashboard/ui/buttons/custom_outlined_button.dart';
@@ -38,6 +39,7 @@ class RegisterView extends StatelessWidget {
                           if (value == '') return 'Name is required';
                           return null;
                         },
+                        onChanged: (value) => registerFormProvider.name = value,
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -57,6 +59,8 @@ class RegisterView extends StatelessWidget {
                             return 'Enter a valid Email';
                           return null;
                         },
+                        onChanged: (value) =>
+                            registerFormProvider.email = value,
                         style: TextStyle(
                           color: Colors.white,
                         ),
@@ -77,6 +81,8 @@ class RegisterView extends StatelessWidget {
                             return 'Password Length must be at least 8 Characters';
                           return null;
                         },
+                        onChanged: (value) =>
+                            registerFormProvider.password = value,
                         obscureText: true,
                         style: TextStyle(
                           color: Colors.white,
@@ -91,7 +97,16 @@ class RegisterView extends StatelessWidget {
                         height: 20.0,
                       ),
                       CustomOutlinedButton(
-                        onPressed: () => registerFormProvider.validateForm(),
+                        onPressed: () {
+                          final validForm = registerFormProvider.validateForm();
+                          if (!validForm) return;
+                          final AuthProvider authProvider =
+                              Provider.of<AuthProvider>(context, listen: false);
+                          authProvider.register(
+                              registerFormProvider.name,
+                              registerFormProvider.email,
+                              registerFormProvider.password);
+                        },
                         text: 'Sign up',
                       ),
                       SizedBox(
