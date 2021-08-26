@@ -67,7 +67,7 @@ class AuthProvider extends ChangeNotifier {
       authStatus = AuthStatus.authenticated;
 
       //Open Dashboard
-      NavigationService.navigateTo(Flurorouter.dashboardRoute);
+      NavigationService.replaceTo(Flurorouter.dashboardRoute);
 
       //Update dio with the new JWT
       CafeApi.configureDio();
