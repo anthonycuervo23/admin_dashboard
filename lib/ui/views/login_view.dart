@@ -10,7 +10,6 @@ import 'package:admin_dashboard/ui/buttons/custom_outlined_button.dart';
 import 'package:admin_dashboard/ui/buttons/link_text.dart';
 import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 
-
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
 

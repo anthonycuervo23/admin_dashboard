@@ -13,7 +13,6 @@ import 'package:admin_dashboard/ui/views/dashboard_view.dart';
 import 'package:admin_dashboard/ui/views/icons_view.dart';
 import 'package:admin_dashboard/ui/views/login_view.dart';
 
-
 class DashboardHandlers {
   //DASHBOARD
   static Handler dashboard = Handler(handlerFunc: (context, params) {

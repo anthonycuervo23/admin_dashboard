@@ -13,7 +13,6 @@ import 'package:admin_dashboard/ui/cards/white_card.dart';
 import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 import 'package:admin_dashboard/ui/labels/custom_labels.dart';
 
-
 class CustomerView extends StatefulWidget {
   const CustomerView({Key? key, required this.uid}) : super(key: key);
 

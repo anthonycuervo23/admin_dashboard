@@ -5,7 +5,6 @@ import 'package:admin_dashboard/router/admin_handlers.dart';
 import 'package:admin_dashboard/router/dashboard_handlers.dart';
 import 'package:admin_dashboard/router/no_page_found_handlers.dart';
 
-
 class Flurorouter {
   static final FluroRouter router = new FluroRouter();
 

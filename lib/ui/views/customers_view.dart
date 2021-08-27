@@ -6,7 +6,6 @@ import 'package:admin_dashboard/datatables/customers_datasource.dart';
 import 'package:admin_dashboard/providers/customers_provider.dart';
 import 'package:admin_dashboard/ui/labels/custom_labels.dart';
 
-
 class CustomersView extends StatelessWidget {
   const CustomersView({Key? key}) : super(key: key);
 

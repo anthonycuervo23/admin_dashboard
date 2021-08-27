@@ -9,7 +9,6 @@ import 'package:admin_dashboard/ui/buttons/custom_outlined_button.dart';
 import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 import 'package:admin_dashboard/ui/labels/custom_labels.dart';
 
-
 class CategoryModal extends StatefulWidget {
   const CategoryModal({
     Key? key,
