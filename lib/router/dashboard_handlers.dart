@@ -3,6 +3,7 @@ import 'package:admin_dashboard/providers/sidebar_provider.dart';
 import 'package:admin_dashboard/router/routes.dart';
 import 'package:admin_dashboard/ui/views/blank_view.dart';
 import 'package:admin_dashboard/ui/views/categorie_view.dart';
+import 'package:admin_dashboard/ui/views/customer_view.dart';
 import 'package:admin_dashboard/ui/views/customers_view.dart';
 import 'package:admin_dashboard/ui/views/dashboard_view.dart';
 import 'package:admin_dashboard/ui/views/icons_view.dart';
@@ -11,6 +12,7 @@ import 'package:fluro/fluro.dart';
 import 'package:provider/provider.dart';
 
 class DashboardHandlers {
+  //DASHBOARD
   static Handler dashboard = Handler(handlerFunc: (context, params) {
     final AuthProvider authProvider = Provider.of<AuthProvider>(context!);
 
@@ -23,6 +25,7 @@ class DashboardHandlers {
       return LoginView();
   });
 
+  //ICONS
   static Handler icons = Handler(handlerFunc: (context, params) {
     final AuthProvider authProvider = Provider.of<AuthProvider>(context!);
     Provider.of<SidebarProvider>(context, listen: false)
@@ -34,6 +37,7 @@ class DashboardHandlers {
       return LoginView();
   });
 
+  //BLANK
   static Handler blank = Handler(handlerFunc: (context, params) {
     final AuthProvider authProvider = Provider.of<AuthProvider>(context!);
     Provider.of<SidebarProvider>(context, listen: false)
@@ -44,6 +48,7 @@ class DashboardHandlers {
       return LoginView();
   });
 
+  //CATEGORIES
   static Handler categories = Handler(handlerFunc: (context, params) {
     final AuthProvider authProvider = Provider.of<AuthProvider>(context!);
     Provider.of<SidebarProvider>(context, listen: false)
@@ -54,6 +59,7 @@ class DashboardHandlers {
       return LoginView();
   });
 
+  //CUSTOMERS
   static Handler customers = Handler(handlerFunc: (context, params) {
     final AuthProvider authProvider = Provider.of<AuthProvider>(context!);
     Provider.of<SidebarProvider>(context, listen: false)
@@ -62,5 +68,21 @@ class DashboardHandlers {
       return CustomersView();
     else
       return LoginView();
+  });
+
+  //CUSTOMER
+  static Handler customer = Handler(handlerFunc: (context, params) {
+    final AuthProvider authProvider = Provider.of<AuthProvider>(context!);
+    Provider.of<SidebarProvider>(context, listen: false)
+        .setCurrentPageUrl(Flurorouter.customersRoute);
+    if (authProvider.authStatus == AuthStatus.authenticated) {
+      if (params['uid']?.first != null) {
+        return CustomerView(uid: params['uid']!.first);
+      } else {
+        return CustomersView();
+      }
+    } else {
+      return LoginView();
+    }
   });
 }

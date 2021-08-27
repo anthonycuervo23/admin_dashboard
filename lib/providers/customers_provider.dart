@@ -25,6 +25,19 @@ class CustomersProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<Usuario?> getUserById(String uid) async {
+    try {
+      final resp = await CafeApi.httpGet('/usuarios/$uid');
+
+      final customer = Usuario.fromJson(resp);
+
+      return customer;
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
+
   void sort<T>(Comparable<T> Function(Usuario customer) getField) {
     customers.sort((a, b) {
       final aValue = getField(a);
@@ -38,5 +51,19 @@ class CustomersProvider extends ChangeNotifier {
     isAscending = !isAscending;
 
     notifyListeners();
+  }
+
+  void refreshCustomer(Usuario newCustomer) {
+    try {
+      customers = customers.map<Usuario>((Usuario customer) {
+        if (customer.uid != newCustomer.uid) return customer;
+        customer.nombre = newCustomer.nombre;
+        customer.correo = newCustomer.correo;
+        return customer;
+      }).toList();
+      notifyListeners();
+    } catch (e) {
+      print(e);
+    }
   }
 }

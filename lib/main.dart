@@ -1,4 +1,3 @@
-import 'package:admin_dashboard/providers/customers_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,6 +7,8 @@ import 'package:admin_dashboard/api/cafe_api.dart';
 
 import 'package:admin_dashboard/router/routes.dart';
 
+import 'package:admin_dashboard/providers/customer_form_provider.dart';
+import 'package:admin_dashboard/providers/customers_provider.dart';
 import 'package:admin_dashboard/providers/categories_provider.dart';
 import 'package:admin_dashboard/providers/sidebar_provider.dart';
 import 'package:admin_dashboard/providers/auth_provider.dart';
@@ -47,6 +48,9 @@ class AppState extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => CustomersProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CustomerFormProvider(),
         ),
       ],
       child: MyApp(),
