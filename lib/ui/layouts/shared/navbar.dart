@@ -1,8 +1,10 @@
+import 'package:flutter/material.dart';
+
+//My imports
 import 'package:admin_dashboard/providers/sidebar_provider.dart';
 import 'package:admin_dashboard/ui/layouts/shared/widgets/navbar_avatar.dart';
 import 'package:admin_dashboard/ui/layouts/shared/widgets/notifications_indicator.dart';
 import 'package:admin_dashboard/ui/layouts/shared/widgets/search_box.dart';
-import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key}) : super(key: key);

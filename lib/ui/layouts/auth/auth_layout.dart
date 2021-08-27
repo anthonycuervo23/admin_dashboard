@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
+
+//My imports
 import 'package:admin_dashboard/ui/layouts/auth/widgets/background_twitter.dart';
 import 'package:admin_dashboard/ui/layouts/auth/widgets/custom_title.dart';
 import 'package:admin_dashboard/ui/layouts/auth/widgets/links_footer.dart';
-import 'package:flutter/material.dart';
 
 class AuthLayout extends StatelessWidget {
   const AuthLayout({Key? key, required this.child}) : super(key: key);

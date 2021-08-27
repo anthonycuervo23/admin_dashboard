@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
+
+//My imports
 import 'package:admin_dashboard/api/models/user.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';
-import 'package:flutter/material.dart';
 
 class CustomersDTS extends DataTableSource {
   CustomersDTS(this.customers);

@@ -1,3 +1,7 @@
+import 'package:fluro/fluro.dart';
+import 'package:provider/provider.dart';
+
+//My imports
 import 'package:admin_dashboard/providers/auth_provider.dart';
 import 'package:admin_dashboard/providers/sidebar_provider.dart';
 import 'package:admin_dashboard/router/routes.dart';
@@ -8,8 +12,7 @@ import 'package:admin_dashboard/ui/views/customers_view.dart';
 import 'package:admin_dashboard/ui/views/dashboard_view.dart';
 import 'package:admin_dashboard/ui/views/icons_view.dart';
 import 'package:admin_dashboard/ui/views/login_view.dart';
-import 'package:fluro/fluro.dart';
-import 'package:provider/provider.dart';
+
 
 class DashboardHandlers {
   //DASHBOARD

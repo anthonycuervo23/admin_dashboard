@@ -1,8 +1,9 @@
 import 'dart:typed_data';
+import 'package:flutter/material.dart';
 
+//My imports
 import 'package:admin_dashboard/api/cafe_api.dart';
 import 'package:admin_dashboard/api/models/user.dart';
-import 'package:flutter/material.dart';
 
 class CustomerFormProvider extends ChangeNotifier {
   late GlobalKey<FormState> formKey;

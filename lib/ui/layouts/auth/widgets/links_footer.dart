@@ -1,5 +1,7 @@
-import 'package:admin_dashboard/ui/buttons/link_text.dart';
 import 'package:flutter/material.dart';
+
+//My imports
+import 'package:admin_dashboard/ui/buttons/link_text.dart';
 
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);

@@ -1,5 +1,7 @@
-import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 import 'package:flutter/material.dart';
+
+//My imports
+import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 
 class SearchBox extends StatelessWidget {
   const SearchBox({Key? key}) : super(key: key);

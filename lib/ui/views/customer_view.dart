@@ -1,3 +1,9 @@
+import 'package:email_validator/email_validator.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+//My imports
 import 'package:admin_dashboard/api/models/user.dart';
 import 'package:admin_dashboard/providers/customer_form_provider.dart';
 import 'package:admin_dashboard/providers/customers_provider.dart';
@@ -6,10 +12,7 @@ import 'package:admin_dashboard/services/notifications_service.dart';
 import 'package:admin_dashboard/ui/cards/white_card.dart';
 import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 import 'package:admin_dashboard/ui/labels/custom_labels.dart';
-import 'package:email_validator/email_validator.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
 
 class CustomerView extends StatefulWidget {
   const CustomerView({Key? key, required this.uid}) : super(key: key);

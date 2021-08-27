@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+//My imports
 import 'package:admin_dashboard/providers/auth_provider.dart';
 import 'package:admin_dashboard/providers/sidebar_provider.dart';
 import 'package:admin_dashboard/router/routes.dart';
@@ -5,8 +9,6 @@ import 'package:admin_dashboard/services/navigation_service.dart';
 import 'package:admin_dashboard/ui/layouts/shared/widgets/logo.dart';
 import 'package:admin_dashboard/ui/layouts/shared/widgets/menu_item.dart';
 import 'package:admin_dashboard/ui/layouts/shared/widgets/text_category.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class SideBar extends StatelessWidget {
   const SideBar({Key? key}) : super(key: key);

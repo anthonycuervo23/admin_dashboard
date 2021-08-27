@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
+
+//My imports
 import 'package:admin_dashboard/api/cafe_api.dart';
 import 'package:admin_dashboard/api/models/http/customers_response.dart';
 import 'package:admin_dashboard/api/models/user.dart';
-import 'package:flutter/material.dart';
 
 class CustomersProvider extends ChangeNotifier {
   List<Usuario> customers = [];
