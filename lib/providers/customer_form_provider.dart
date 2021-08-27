@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:admin_dashboard/api/cafe_api.dart';
 import 'package:admin_dashboard/api/models/user.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +58,22 @@ class CustomerFormProvider extends ChangeNotifier {
     } catch (e) {
       print(e);
       return false;
+    }
+  }
+
+  Future<Usuario> uploadImage(String uid, Uint8List bytes) async {
+    try {
+      final resp =
+          await CafeApi.httpUploadFile('/uploads/usuarios/$uid', bytes);
+
+      //update customer with the new updated file
+      customer = Usuario.fromJson(resp);
+      notifyListeners();
+
+      return customer!;
+    } catch (e) {
+      print(e);
+      throw 'Error in Customer Form Provider';
     }
   }
 }

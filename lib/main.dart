@@ -7,11 +7,7 @@ import 'package:admin_dashboard/api/cafe_api.dart';
 
 import 'package:admin_dashboard/router/routes.dart';
 
-import 'package:admin_dashboard/providers/customer_form_provider.dart';
-import 'package:admin_dashboard/providers/customers_provider.dart';
-import 'package:admin_dashboard/providers/categories_provider.dart';
-import 'package:admin_dashboard/providers/sidebar_provider.dart';
-import 'package:admin_dashboard/providers/auth_provider.dart';
+import 'package:admin_dashboard/providers/providers.dart';
 
 import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';

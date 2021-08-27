@@ -7,6 +7,7 @@ import 'package:admin_dashboard/ui/cards/white_card.dart';
 import 'package:admin_dashboard/ui/inputs/custom_inputs.dart';
 import 'package:admin_dashboard/ui/labels/custom_labels.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -211,7 +212,13 @@ class _AvatarContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final CustomerFormProvider customerFormProvider =
         Provider.of<CustomerFormProvider>(context);
+
     final Usuario customer = customerFormProvider.customer!;
+
+    final image = (customer.img == null)
+        ? Image(image: AssetImage('no-image.jpg'))
+        : FadeInImage.assetNetwork(
+            placeholder: 'loader.gif', image: customer.img!);
     return WhiteCard(
       width: 250.0,
       child: Container(
@@ -233,9 +240,7 @@ class _AvatarContainer extends StatelessWidget {
               child: Stack(
                 children: [
                   ClipOval(
-                    child: Image(
-                      image: AssetImage('no-image.jpg'),
-                    ),
+                    child: image,
                   ),
                   Positioned(
                     bottom: 5,
@@ -253,7 +258,29 @@ class _AvatarContainer extends StatelessWidget {
                       child: FloatingActionButton(
                         backgroundColor: Colors.indigo,
                         elevation: 0,
-                        onPressed: () {},
+                        onPressed: () async {
+                          FilePickerResult? result =
+                              await FilePicker.platform.pickFiles(
+                            type: FileType.image,
+                            //allowedExtensions: ['jpg', 'jpeg', 'png'],
+                          );
+
+                          if (result != null) {
+                            NotificationsService.showLoadingIndicator(context);
+                            PlatformFile file = result.files.first;
+
+                            final updatedCustomer = await customerFormProvider
+                                .uploadImage(customer.uid, file.bytes!);
+
+                            Provider.of<CustomersProvider>(context,
+                                    listen: false)
+                                .refreshCustomer(updatedCustomer);
+
+                            Navigator.pop(context);
+                          } else {
+                            //user canceled the picker
+                          }
+                        },
                         child: Icon(
                           Icons.camera_alt_outlined,
                           size: 20.0,

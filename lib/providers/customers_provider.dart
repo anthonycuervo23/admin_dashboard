@@ -59,6 +59,7 @@ class CustomersProvider extends ChangeNotifier {
         if (customer.uid != newCustomer.uid) return customer;
         customer.nombre = newCustomer.nombre;
         customer.correo = newCustomer.correo;
+        customer.img = newCustomer.img;
         return customer;
       }).toList();
       notifyListeners();

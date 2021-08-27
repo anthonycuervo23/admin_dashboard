@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:dio/dio.dart';
 
@@ -68,6 +70,19 @@ class CafeApi {
     } on DioError catch (e) {
       print(e);
       throw ('Error in Delete request ===>  ${e.response?.data['errors'][0]['msg'] ?? '${e.response}'}');
+    }
+  }
+
+  static Future httpUploadFile(String path, Uint8List bytes) async {
+    final formData =
+        FormData.fromMap({'archivo': MultipartFile.fromBytes(bytes)});
+
+    try {
+      final resp = await _dio.put(path, data: formData);
+      return resp.data;
+    } on DioError catch (e) {
+      print(e);
+      throw ('Error in PUT request ===> ${e.response?.data['errors'][0]['msg'] ?? '${e.response}'}');
     }
   }
 }

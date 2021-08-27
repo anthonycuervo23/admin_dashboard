@@ -11,11 +11,19 @@ class CustomersDTS extends DataTableSource {
   DataRow? getRow(int index) {
     final Usuario customer = customers[index];
 
-    final image = Image(
-      image: AssetImage('no-image.jpg'),
-      width: 35,
-      height: 35,
-    );
+    final image = (customer.img == null)
+        ? Image(
+            image: AssetImage('no-image.jpg'),
+            width: 35,
+            height: 35,
+          )
+        : FadeInImage.assetNetwork(
+            placeholder: 'loader.gif',
+            image: customer.img!,
+            width: 35,
+            height: 35,
+          );
+
     return DataRow.byIndex(index: index, cells: [
       DataCell(ClipOval(child: image)),
       DataCell(Text(customer.nombre)),
