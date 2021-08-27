@@ -1,4 +1,4 @@
-import 'package:admin_dashboard/api/models/http/auth_response.dart';
+import 'package:admin_dashboard/api/models/user.dart';
 import 'package:admin_dashboard/providers/auth_provider.dart';
 import 'package:admin_dashboard/ui/cards/white_card.dart';
 import 'package:admin_dashboard/ui/labels/custom_labels.dart';

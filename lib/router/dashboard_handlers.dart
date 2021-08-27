@@ -3,6 +3,7 @@ import 'package:admin_dashboard/providers/sidebar_provider.dart';
 import 'package:admin_dashboard/router/routes.dart';
 import 'package:admin_dashboard/ui/views/blank_view.dart';
 import 'package:admin_dashboard/ui/views/categorie_view.dart';
+import 'package:admin_dashboard/ui/views/customers_view.dart';
 import 'package:admin_dashboard/ui/views/dashboard_view.dart';
 import 'package:admin_dashboard/ui/views/icons_view.dart';
 import 'package:admin_dashboard/ui/views/login_view.dart';
@@ -49,6 +50,16 @@ class DashboardHandlers {
         .setCurrentPageUrl(Flurorouter.categoriesRoute);
     if (authProvider.authStatus == AuthStatus.authenticated)
       return CategoriesView();
+    else
+      return LoginView();
+  });
+
+  static Handler customers = Handler(handlerFunc: (context, params) {
+    final AuthProvider authProvider = Provider.of<AuthProvider>(context!);
+    Provider.of<SidebarProvider>(context, listen: false)
+        .setCurrentPageUrl(Flurorouter.customersRoute);
+    if (authProvider.authStatus == AuthStatus.authenticated)
+      return CustomersView();
     else
       return LoginView();
   });

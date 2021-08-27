@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:admin_dashboard/api/cafe_api.dart';
 import 'package:admin_dashboard/api/models/http/auth_response.dart';
+import 'package:admin_dashboard/api/models/user.dart';
 import 'package:admin_dashboard/router/routes.dart';
 import 'package:admin_dashboard/services/local_storage.dart';
 import 'package:admin_dashboard/services/navigation_service.dart';

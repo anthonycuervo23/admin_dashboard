@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:admin_dashboard/api/models/user.dart';
+
 AuthResponse authResponseFromJson(String str) =>
     AuthResponse.fromJson(json.decode(str));
 
@@ -22,41 +24,5 @@ class AuthResponse {
   Map<String, dynamic> toJson() => {
         "usuario": usuario.toJson(),
         "token": token,
-      };
-}
-
-class Usuario {
-  Usuario({
-    required this.rol,
-    required this.estado,
-    required this.google,
-    required this.nombre,
-    required this.correo,
-    required this.uid,
-  });
-
-  String rol;
-  bool estado;
-  bool google;
-  String nombre;
-  String correo;
-  String uid;
-
-  factory Usuario.fromJson(Map<String, dynamic> json) => Usuario(
-        rol: json["rol"],
-        estado: json["estado"],
-        google: json["google"],
-        nombre: json["nombre"],
-        correo: json["correo"],
-        uid: json["uid"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "rol": rol,
-        "estado": estado,
-        "google": google,
-        "nombre": nombre,
-        "correo": correo,
-        "uid": uid,
       };
 }
